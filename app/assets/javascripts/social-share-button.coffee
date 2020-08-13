@@ -62,7 +62,12 @@ window.SocialShareButton =
           url: decodeURIComponent(url)
           header: el.getAttribute('title')
           footer: el.getAttribute("data-wechat-footer")
-
+      when "wework"
+        throw new Error("You should require social-share-button/wework to your application.js") unless window.SocialShareWeWorkButton
+        window.SocialShareWeWorkButton.qrcode
+          url: decodeURIComponent(url)
+          header: el.getAttribute('title')
+          footer: el.getAttribute("data-wework-footer")
       when "tumblr"
         get_tumblr_extra = (param) ->
           cutom_data = el.getAttribute("data-#{param}")

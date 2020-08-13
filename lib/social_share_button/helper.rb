@@ -14,6 +14,7 @@ module SocialShareButton
         special_data = opts.select { |k, _| k.to_s.start_with?('data-' + name) }
         
         special_data["data-wechat-footer"] = t "social_share_button.wechat_footer" if name == "wechat"
+        special_data["data-wework-footer"] = t "social_share_button.wework_footer" if name == "wework"
 
         link_title = t "social_share_button.share_to", :name => t("social_share_button.#{name.downcase}")
         html << link_to("", "#", { :rel => ["nofollow", rel],

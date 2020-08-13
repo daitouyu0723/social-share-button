@@ -21,6 +21,7 @@ module SocialShareButton
     # - email
     # - linkedin
     # - wechat
+    # - wework
     # - vkontakte
     # - odnoklassniki
     # - Xing
