@@ -1,14 +1,14 @@
 #= require jquery.qrcode.min
 
-window.SocialShareWeChatButton =
+window.SocialShareWeWorkButton =
   init: (opts={}) ->
-    $wDialog = "<div id='ss-wechat-dialog' class='ss-wechat-dialog'>
-                  <div class='wechat-popup-header'>
+    $wDialog = "<div id='ss-wework-dialog' class='ss-wework-dialog'>
+                  <div class='wework-popup-header'>
                     <span>#{opts.header}</span>
-                    <a href='#' onclick='return false;' class='wechat-popup-close'>×</a>
+                    <a href='#' onclick='return false;' class='wework-popup-close'>×</a>
                   </div>
-                  <div id='ss-wechat-dialog-qr' class='wechat-dialog-qr'></div>
-                  <div class='wechat-popup-footer'>
+                  <div id='ss-wework-dialog-qr' class='wework-dialog-qr'></div>
+                  <div class='wework-popup-footer'>
                     #{opts.footer}
                   </div>
                </div>"
@@ -16,23 +16,23 @@ window.SocialShareWeChatButton =
     $("body").append($wDialog)
 
    bindEvents: ()->
-     $wContainer = $("#ss-wechat-dialog")
-     $wContainer.find(".wechat-popup-close").on "click", (e) ->
+     $wContainer = $("#ss-wework-dialog")
+     $wContainer.find(".wework-popup-close").on "click", (e) ->
        $wContainer.hide()
 
    qrcode: (opts={}) ->
-     unless $("#ss-wechat-dialog").length
+     unless $("#ss-wework-dialog").length
        @init(opts)
        @bindEvents()
 
-     $wBody = $('#ss-wechat-dialog-qr')
+     $wBody = $('#ss-wework-dialog-qr')
      $wBody.empty()
      $wBody.qrcode
        width: 200
        height: 200
        text: opts.url
 
-     $wContainer = $("#ss-wechat-dialog")
+     $wContainer = $("#ss-wework-dialog")
      top = ($(window).height() - $wContainer.height()) / 2
      top = 100 if top < 100
      left = ($(window).width() - $wContainer.width()) / 2
